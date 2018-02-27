@@ -1,9 +1,10 @@
 # Fund_Data-Crawler
-##### ---------------------------------------------------Script Specification EN-VERSION 2018/2/28 1:37 GMT（CHN-VERSION IS BELOW）
+##### ------------------------------------------------------Script Specification EN-VERSION 2018/2/28 1:37 GMT（CHN-VERSION IS BELOW）
 ### __Basic function: Efficiently crawl day-level data of all open-ended funds in China (gain 5M records within 20 minutes)__
 ### **Future work: data analysis, prediction and find best combinations**
+#### Data annotation:view the CHN-VERSION BELOW  
 #### Features of the program：
->1.Tor is nat available in Chinese Mainland, so I crawl a proxy website and build an IP proxy pool to prevent anti-crawler in fund site  
+>1.Tor is nat available in Chinese Mainland, so I crawl a proxy website and build an IP proxy pool to prevent anti-crawler in fund site 
  2.Controlling the Chrome automatically to get all fund codes which are dynamically loaded  
  3.Use 8 processes and 4 threads(3 crawl threads and 1 store data thread）, the speed increase 20 times, which makes it possible to acquire 5 million records from 6600+ funds of 8 types within 1300 seconds.  
  4.You can choose to store in local Mysql server.  
@@ -11,8 +12,8 @@
 
 #### Before start, you have to install：
 >1.windows10 + python3 + IDE(PyCharm recommended)  
-2.all packages that will be used, including：beautifulsoup4,selenium,chardet,requests,MySQLdb,sqlalchemy,multiprocessing,queue,threading  
-3.selenium driver of chrome, and set path in enviroment variable: see https://www.seleniumhq.org/docs/03_webdriver.jsp  
+2.all packages that will be used, including：beautifulsoup4,selenium,chardet,requests,MySQLdb,sqlalchemy,multiprocessing,queue,threading   
+3.Chrome browser, selenium driver of chrome, and set path in enviroment variable: see https://www.seleniumhq.org/docs/03_webdriver.jsp  
 4.MySQL5.7 and upper version, create new account, or data would be saved in disk D 
 
 #### Functions and alterable parameters of every script：
@@ -44,24 +45,28 @@
 Save all the scripts into same contents, install necessary packages and modify due to declarations above. Then run main script SumUpManager.py, wait for approximate 20 minutes  
 
 #### -------------------------------------------------------------------------------------脚本说明中文版 2018/2/28 1:37 GMT
-### 基本功能：高效抓取中国所有开放式日级别基金数据（20分钟内抓取5000000条记录）
+### 基本功能：高效抓取中国所有开放式基金日级别数据（20分钟内抓取5000000条记录）
 ### 未来工作：数据预测、分析、最优组合
+#### 数据说明：
+>**fund_data&part1.rar:** ***mix:混合型基金;  LOF:上市型开放式基金;  FOF:专门投资于其他证券投资基金的基金***  
+**fund_data&part2.rar:**  ***stock:股票型基金;  all_index:指数型基金;  bond:债券型基金;  ETFlink:投资于ETF基金的基金;  QDII:合格境内机构投资者基金***
+
 #### 脚本特色：
->1.由于大陆无法使用Tor代理，从xicidaili爬取筛选代理，筛选多个优质高匿代理建立代理池，防止反爬虫    
+>1.由于大陆无法使用Tor代理，从xicidaili爬取代理，筛选多个优质高匿代理建立代理池，防止反爬虫    
  2.自动操控Chrome浏览器，获取所有动态加载的开放式基金的代码  
  3.采用8进程4线程（3个线程抓取基金数据+1个线程将数据存盘），运行速度提升2000%，1300秒内运行完毕，获取8个种类6600+基金的5000000条记录  
  4.保存到本地MySQL服务器  
  5.使用前请先运行test_multi-core&multi-threads.py测试IDE是否支持多进程与多线程，如：Spyder的支持存在问题，PyCharm正常运行  
 
-#### 在运行脚本前，你需要安装：
+#### 在运行脚本前，需要安装：
 >1.windows10 + python3 + IDE（推荐pycharm） 
 2.所有要使用的包，包括：beautifulsoup4,selenium,chardet,requests,MySQLdb,sqlalchemy,multiprocessing,queue,threading  
-3.selenium的chrome驱动并配置环境变量，见https://www.seleniumhq.org/docs/03_webdriver.jsp  
+3.chrome浏览器，selenium的chrome驱动并配置环境变量，见https://www.seleniumhq.org/docs/03_webdriver.jsp  
 4.MySQL5.7以上版本并建立新账户，否则数据将直接保存到D盘  
 
 #### 各脚本功能与可调参数说明：
 >**1.CodeCollector.py**：  
->>* ***功能***：使用selenium动态操控Chrome浏览器，获取8种开放式基金的全部基金代码  
+>>* ***功能***：使用selenium动态操控Chrome浏览器，获取8种开放式基金下属全部基金的代码  
 >>* ***参数***：在line21中将地址改为自己的selenium安装地址  
 
 >**2.IPPool.py**:  
